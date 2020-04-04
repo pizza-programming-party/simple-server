@@ -1,14 +1,13 @@
 const http = require('http');
 
-const hostname = '192.168.43.31';
-const port = 5000;
+const port = 8080;
 
 const server = http.createServer((req, res) => {
-	res.statusCode = 200;
-  	res.setHeader('Content-Type', 'text/plain');
-  	res.end('Sysmon App is Up and Running!\n');
+    console.log(`The page "${req.url}" was requested.`);
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+  	res.end('hello!\n');
 });
 
-server.listen(port, hostname, () => {
-  	console.log(`Server running at http://${hostname}:${port}/`);
-});
+server.listen(port, () => {
+    console.log(`The server is running on port number ${port}.`);
+})
